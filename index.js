@@ -1,9 +1,4 @@
 
-var connect = rere("connect");
-var serveStatic = require("serve-static");
-
-var app = connect();
-app.use(serveStatic("."));
-
-app.listen(process.env.PORT || 8000);
- 
+var server=http.createServer(function (req,res){
+    fs.createReadStream(Path.resolve(__dirname,"."+req.url)).pipe(res);
+})
